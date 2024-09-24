@@ -70,6 +70,7 @@ public class UserServiceImpl implements UserService {
                                                                               .genero(userCreateDTO.getGenero())
                                                                               .fechaNacimiento(userCreateDTO.getFechaNacimiento())
                                                                               .telefono(userCreateDTO.getTelefono())
+                                                                              .direccion(userCreateDTO.getDireccion())
                                                                               .fechaCreacion(new Date())
                                                                               .build());
 			

@@ -51,6 +51,9 @@ public class PersonaEntity implements Serializable {
 	@Column(name="de_tele", nullable = false)
 	private String telefono;
 	
+	@Column(name="de_dire", nullable = false)
+	private String direccion;
+	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name="fe_crea", nullable = false)
 	private Date fechaCreacion;
