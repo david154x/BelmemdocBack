@@ -1,5 +1,6 @@
 package com.drr.BelmemdocApiRest.business.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
@@ -11,8 +12,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductoCreateDTO {
+public class ProductoCreateDTO implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private Integer idTipoProducto;
 
 	private Integer idMarca;
@@ -23,6 +26,6 @@ public class ProductoCreateDTO {
 
 	private BigDecimal valorProducto;
 
-	private String ubicacionFoto;
+	private byte[] ubicacionFoto;
 
 }

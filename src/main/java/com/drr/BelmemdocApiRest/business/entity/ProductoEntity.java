@@ -7,6 +7,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -14,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -54,8 +56,9 @@ public class ProductoEntity implements Serializable {
 	@Column(name = "vr_prod", nullable = false)
 	private BigDecimal valorProducto;
 	
-	@Column(name = "de_ruta", nullable = false)
-	private String ubicacionFoto;
+	@Lob
+    @Column(name = "de_ruta", nullable = true, columnDefinition = "LONGBLOB")
+    private byte[] ubicacionFoto;
 
 	@Column(name = "id_acti", columnDefinition = "varchar(1)", nullable = false)
 	private String idActivo;

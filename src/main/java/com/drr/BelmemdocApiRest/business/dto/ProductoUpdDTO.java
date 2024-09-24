@@ -25,7 +25,7 @@ public class ProductoUpdDTO {
 
 	private BigDecimal newValorProducto;
 
-	private String newUbicacionFoto;
+	private byte[] newUbicacionFoto;
 	
 	private String idActivo;
 

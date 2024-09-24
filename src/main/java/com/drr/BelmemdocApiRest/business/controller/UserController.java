@@ -117,12 +117,12 @@ public class UserController {
     public ResponseEntity<?> loginUsuario(@RequestBody AutenticacionUserDTO autenticacionUserDTO) {
         try {
             
-        	if (this.userService.iniciarSesion(autenticacionUserDTO)) {
+        	if ( this.userService.iniciarSesion(autenticacionUserDTO) ) {
 
                 String token = Jwts.builder()
 			                       .setSubject(autenticacionUserDTO.getEmail())
 			                       .setIssuedAt(new Date()) // Fecha de emisión
-			                       .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+			                       .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 15))
 			                       .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
 			                       .compact();
                 
@@ -134,6 +134,7 @@ public class UserController {
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
             }
+        	
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error en el login");

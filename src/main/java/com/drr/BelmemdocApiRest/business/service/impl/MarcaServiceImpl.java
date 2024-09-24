@@ -26,7 +26,7 @@ public class MarcaServiceImpl implements MarcaService {
 			List<MarcaEntity> lstMarcas = marcaRepository.findAll();
 			
 			if(lstMarcas == null || lstMarcas.isEmpty())
-				throw new Exception("No se encontraron usuarios");
+				throw new Exception("No se encontraron marcas");
 			
 			return lstMarcas;
 			
